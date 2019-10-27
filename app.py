@@ -23,7 +23,7 @@ REMIN = 'Just click on "continue" button there'
 async def on_ready():
     print('Logged in as')
     print('------')
-    activity = discord.Game(name="with supporters" + MSG)
+    activity = discord.Game(name="with supporters")
     await bot.change_presence(activity=activity)
 
 
