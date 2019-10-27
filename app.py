@@ -4,7 +4,6 @@ import random
 from itertools import cycle
 from discord.utils import get
 import os
-import requests
 from discord.utils import get
 from discord import Game
 from discord import Activity, ActivityType
