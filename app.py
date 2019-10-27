@@ -30,4 +30,4 @@ async def kick(ctx):
     
     
     
-client.run(os.getenv('BOT_TOKEN'))
+bot.run(os.getenv('BOT_TOKEN'))
