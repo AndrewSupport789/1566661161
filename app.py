@@ -10,6 +10,7 @@ from discord import Activity, ActivityType
 
 bot = commands.Bot(command_prefix='Supp')
 
+presence = "With Supporters"
 
 MSG = '   Enjoy'
 
@@ -23,7 +24,7 @@ REMIN = 'Just click on "continue" button there'
 async def on_ready():
     print('Logged in as')
     print('------')
-    activity = discord.Game(name="with supporters")
+    activity = discord.Game(name=presence)
     await bot.change_presence(activity=activity)
 
 
@@ -37,7 +38,10 @@ async def Nord(ctx):
     await ctx.author.send("*LINK #3:* https://link-to.net/52237/Nord5789902" + MSG)
     await ctx.send("Check your DMs :heart:" + MSG)
  
-#
+@Nord.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')
  
 @bot.command()
 @commands.has_role('Supporter')
@@ -47,6 +51,11 @@ async def Spotify(ctx):
     await ctx.author.send("*LINK #2:* https://link-to.net/52237/Spotify024579" + MSG)
     await ctx.send("Check your DMs :heart:" + MSG)
     
+@Spotify.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')
+    
 @bot.command()
 @commands.has_role('Supporter')
 async def Minecraft(ctx):
@@ -55,7 +64,13 @@ async def Minecraft(ctx):
     await ctx.author.send("*LINK #2:* https://link-to.net/52237/Minecraft2456789" + MSG)
     await ctx.author.send("*LINK #3:* https://link-to.net/52237/Minecraft8794201" + MSG)
     await ctx.send("Check your DMs :heart:" + MSG)
+
+@Minecraft.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')    
     
+
 @bot.command()
 @commands.has_role('Supporter')
 async def Steam(ctx):
@@ -64,7 +79,10 @@ async def Steam(ctx):
     await ctx.author.send("*LINK #2:* https://link-to.net/52237/21576Steam" + MSG)
     await ctx.send("Check your DMs :heart:" + MSG)
 
-
+@Steam.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')
 #
         
 @bot.command()
@@ -75,7 +93,10 @@ async def Origin(ctx):
     await ctx.author.send("*LINK #2:* https://link-to.net/52237/Origin202503 " + MSG)
     await ctx.send("Check your DMs :heart:" + MSG)
  
-
+@Origin.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')
  #
 @bot.command()
 @commands.has_role('Supporter')
@@ -85,6 +106,11 @@ async def Hulu(ctx):
     await ctx.author.send("*LINK #2:* https://link-to.net/52237/21576Hulu" + MSG)
     await ctx.author.send("*LINK #3:* https://link-to.net/52237/Hulu00124693" + MSG)
     await ctx.send("Check your DMs :heart:" + MSG)
+
+@Hulu.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')
         
 @bot.command()
 @commands.has_role('Supporter')
@@ -92,7 +118,12 @@ async def Grammarly(ctx):
     await ctx.author.send("***Grammarly***")
     await ctx.author.send("*LINK #1:* https://link-to.net/52237/Grammarly00128973" + MSG)
     await ctx.send("Check your DMs :heart:" + MSG)
-        
+ 
+@Grammarly.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')
+ 
 @bot.command()
 @commands.has_role('Supporter')
 async def Crunchyroll(ctx):
@@ -100,6 +131,11 @@ async def Crunchyroll(ctx):
     await ctx.author.send("*LINK #1:* https://link-to.net/52237/Crunchyroll564879" + MSG)
     await ctx.author.send("*LINK #2:* https://link-to.net/52237/Crunchyroll5648789" + MSG)
     await ctx.send("Check your DMs :heart:" + MSG)
+
+@Crunchyroll.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')
 	
 	
 bot.run(os.getenv('BOT_TOKEN'))
