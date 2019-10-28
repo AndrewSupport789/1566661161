@@ -10,7 +10,6 @@ from discord import Activity, ActivityType
 
 bot = commands.Bot(command_prefix='Supp')
 
-presence = "With Supporters"
 
 MSG = '   Enjoy'
 
@@ -22,10 +21,8 @@ REMIN = 'Just click on "continue" button there'
 
 @bot.event
 async def on_ready():
-    print('Logged in as')
-    print('------')
-    activity = discord.Game(name=presence)
-    await bot.change_presence(activity=activity)
+    await bot.wait_until_ready()
+    await bot.change_presence(activity=Activity(name="Supporters channel", type=ActivityType.watching))
 
 
 	
