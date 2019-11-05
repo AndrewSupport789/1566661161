@@ -81,7 +81,21 @@ async def test_error(ctx, error):
     if isinstance(error, commands.MissingRole):
         await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')
 #
-        
+ 
+@bot.command()
+@commands.has_role('Supporter')
+async def Uplay(ctx):
+    await ctx.author.send("***Uplay***")
+    await ctx.author.send("*LINK #1:* https://link-to.net/52237/WDH0Uplay0225fgk" + MSG)
+    await ctx.author.send("*LINK #2:* https://link-to.net/52237/0225516Uplay0089" + MSG)
+    await ctx.author.send("*LINK #2:* https://link-to.net/52237/2225Uplay2240" + MSG)
+    await ctx.send("Check your DMs :heart:" + MSG)	
+	
+@Uplay.error
+async def test_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+        await ctx.send('''Buy supporter role here: http://Shoppy.gg/@BadRabbit001''')	
+	
 @bot.command()
 @commands.has_role('Supporter')
 async def Origin(ctx):
